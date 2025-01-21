@@ -1,4 +1,4 @@
-ChatBot assistant 
+# ChatBot assistant 
 
-#To Test Service, use the CSV file provided within the repo to proceed.
-Data Formatting has been implemented using this File
+## To Test this service, use the CSV file provided within the repo to proceed.
+- Data Formatting has been implemented using the format of the given csv file
