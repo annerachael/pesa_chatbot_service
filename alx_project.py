@@ -11,6 +11,8 @@ import matplotlib.pyplot as plt
 load_dotenv()
 openai.api_key = os.environ.get("openai.api_key")
 
+openai.api_key = st.secrets["OPENAI_API_KEY"]
+
 # Initialize session state:
 if 'messages' not in st.session_state:
     st.session_state.messages = []
