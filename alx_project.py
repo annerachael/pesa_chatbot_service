@@ -118,21 +118,21 @@ if uploaded_file:
                     max_tokens=300
                 )
 
-                """Extract the assistant's answer"""
+                #Extract the assistant's answer
                 answer = response['choices'][0]['message']['content'].strip()
 
-                """Add assistant response to chat history"""
+                #Add assistant response to chat history
                 st.session_state.messages.append({"role": "assistant", "content": answer})
 
-                """Display the assistant's answer"""
+                #Display the assistant's answer
                 st.write("**Assistant:**", answer)
 
-            """Display predictive analysis results"""
+            #Display predictive analysis results
             st.header("Predictive Analysis: Revenue Forecast")
             st.write("Future Revenue Predictions (Next 10 Years):")
             st.dataframe(future_df)
 
-            """Plot historical and predicted revenue"""
+            #Plot historical and predicted revenue
             plt.figure(figsize=(10, 6))
             plt.plot(df['Year'], df['Revenue ($B)'], label="Historical Revenue", marker='o')
             plt.plot(future_df['Year'], future_df['Predicted Revenue ($B)'], label="Predicted Revenue", marker='x', linestyle='--')
