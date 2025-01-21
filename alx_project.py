@@ -9,7 +9,14 @@ import os
 import matplotlib.pyplot as plt
 
 load_dotenv()
-openai.api_key = st.secrets.get("OPENAI_API_KEY", os.getenv("OPENAI_API_KEY"))
+
+# Securely retrieve the OpenAI API key
+openai.api_key = st.secrets.get("OPENAI_API_KEY") or os.getenv("OPENAI_API_KEY")
+
+# Check if the API key is set
+if not openai.api_key:
+    st.error("OpenAI API Key is missing. Please check your Streamlit secrets or .env file.")
+    st.stop()
 
 
 # Initialize session state:
