@@ -113,9 +113,9 @@ if uploaded_file:
                 st.write("**Assistant:**", answer)
 
             #Display predictive analysis results
-            st.header("Predictive Analysis: Revenue Forecast")
-            st.write("Future Revenue Predictions (Next 10 Years):")
-            st.dataframe(future_df)
+            # st.header("Predictive Analysis: Revenue Forecast")
+            # st.write("Future Revenue Predictions (Next 10 Years):")
+            # st.dataframe(future_df)
 
             #Plot historical and predicted revenue
             plt.figure(figsize=(10, 6))
