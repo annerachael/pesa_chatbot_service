@@ -99,7 +99,7 @@ if uploaded_file:
                         2. For predictive questions (e.g., forecast, future, predict), use the predictive data.
                         3. Summarize or conclude answers to avoid incomplete responses.
                         4. Provide responses in the requested format (e.g., currency, percentage, etc.).
-                        5. Do not answer questions unrelated to the financial data.
+                        5. Do not answer questions unrelated to the financial dataset.
                         6. Give accurate results based on questions asked (e.g highest, average, median, maximum)
                         """},
                         {"role": "user",
