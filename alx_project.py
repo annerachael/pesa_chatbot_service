@@ -100,6 +100,7 @@ if uploaded_file:
                         3. Summarize or conclude answers to avoid incomplete responses.
                         4. Provide responses in the requested format (e.g., currency, percentage, etc.).
                         5. Do not answer questions unrelated to the financial data.
+                        6. Give accurate results based on questions asked (e.g highest, average, median, maximum)
                         """},
                         {"role": "user",
                          "content": f"The following is financial data in tabular format:\n{relevant_data}\n\nAnswer the question: {question}"}
