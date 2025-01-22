@@ -38,14 +38,11 @@ required_columns = [
 if uploaded_file:
     """Machine Learning prediction using Linear Regression"""
     try:
-        # Load the entire CSV content
         df = pd.read_csv(uploaded_file)
 
-        # Validate if the required columns are present
         if all(col in df.columns for col in required_columns):
             st.write("CSV Data Preview:", df)
 
-            # Prepare data for regression
             df = df.sort_values(by="Year")  # Ensure data is sorted by year
 
             X = df[['Year']].values
@@ -62,7 +59,6 @@ if uploaded_file:
             future_years = np.arange(df['Year'].max() + 1, df['Year'].max() + 11).reshape(-1, 1)
             future_revenue = model.predict(future_years)
 
-            # Create DataFrame for future predictions
             future_df = pd.DataFrame({
                 'Year': future_years.flatten(),
                 'Predicted Revenue ($B)': future_revenue
@@ -73,10 +69,8 @@ if uploaded_file:
                 Determines whether the question is about historical or predictive data.
                 """
                 if "predict" in question.lower() or "forecast" in question.lower() or "future" in question.lower():
-                    # Predictive response
                     return f"Predicted revenue for the next 10 years:\n{future_df.to_string(index=False)}"
                 else:
-                    # Historical data response
                     return df.to_string(index=False)
 
             # Display chat history
@@ -91,10 +85,8 @@ if uploaded_file:
             question = st.text_area("Ask a question about the financial data:")
 
             if st.button("Get Answer"):
-                # Add user question to chat history
                 st.session_state.messages.append({"role": "user", "content": question})
 
-                # Retrieve relevant data
                 relevant_data = retrieve_data(question)
 
                 # Use OpenAI ChatCompletion to generate an answer with RAG approach
@@ -115,13 +107,9 @@ if uploaded_file:
                     max_tokens=300
                 )
 
-                #Extract the assistant's answer
                 answer = response['choices'][0]['message']['content'].strip()
-
-                #Add assistant response to chat history
                 st.session_state.messages.append({"role": "assistant", "content": answer})
 
-                #Display the assistant's answer
                 st.write("**Assistant:**", answer)
 
             #Display predictive analysis results
