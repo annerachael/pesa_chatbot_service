@@ -4,7 +4,6 @@ from elasticsearch import Elasticsearch, helpers
 from dotenv import load_dotenv
 import os
 
-# Load environment variables
 load_dotenv()
 
 warnings.filterwarnings("ignore", category=UserWarning, module="elasticsearch")
@@ -16,7 +15,6 @@ client = Elasticsearch(
     basic_auth=("elastic", os.environ.get("ELASTIC_PASSWORD")),
 )
 
-# CSV to Elasticsearch bulk upload
 def bulk_upload_csv_to_elasticsearch(file_path, index_name):
     try:
         # Open the CSV file
@@ -32,16 +30,13 @@ def bulk_upload_csv_to_elasticsearch(file_path, index_name):
                 }
                 actions.append(action)
 
-            # Use Elasticsearch bulk API to upload data
             helpers.bulk(client, actions)
             print(f"Successfully indexed data into '{index_name}' index.")
     except Exception as e:
         print(f"Error: {e}")
 
 
-# Provide the file path and index name
-csv_file_path = "McDonalds_Financial_Statements.csv"  # Replace with your CSV file path
-index_name = "pesa_chatbot_analysis"  # Replace with your desired index name
+csv_file_path = "McDonalds_Financial_Statements.csv"
+index_name = "pesa_chatbot_analysis"
 
-# Call the function to bulk upload
 bulk_upload_csv_to_elasticsearch(csv_file_path, index_name)

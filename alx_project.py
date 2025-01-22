@@ -10,14 +10,11 @@ import matplotlib.pyplot as plt
 
 load_dotenv()
 
-# Securely retrieve the OpenAI API key
 openai.api_key = st.secrets.get("OPENAI_API_KEY") or os.getenv("OPENAI_API_KEY")
 
-# Check if the API key is set
 if not openai.api_key:
     st.error("OpenAI API Key is missing. Please check your Streamlit secrets or .env file.")
     st.stop()
-
 
 # Initialize session state:
 if 'messages' not in st.session_state:
@@ -39,6 +36,7 @@ required_columns = [
 ]
 
 if uploaded_file:
+    """Machine Learning prediction using Linear Regression"""
     try:
         # Load the entire CSV content
         df = pd.read_csv(uploaded_file)
@@ -70,7 +68,6 @@ if uploaded_file:
                 'Predicted Revenue ($B)': future_revenue
             })
 
-            # Function to retrieve data based on the question
             def retrieve_data(question):
                 """
                 Determines whether the question is about historical or predictive data.
