@@ -17,7 +17,6 @@ client = Elasticsearch(
 
 def bulk_upload_csv_to_elasticsearch(file_path, index_name):
     try:
-        # Open the CSV file
         with open(file_path, "r", encoding="utf-8") as f:
             reader = csv.DictReader(f)  # Automatically uses the first row as field names
             actions = []
@@ -26,7 +25,7 @@ def bulk_upload_csv_to_elasticsearch(file_path, index_name):
             for row in reader:
                 action = {
                     "_index": index_name,
-                    "_source": row,  # The row itself becomes the document
+                    "_source": row,
                 }
                 actions.append(action)
 

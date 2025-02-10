@@ -16,7 +16,7 @@ if not openai.api_key:
     st.error("OpenAI API Key is missing. Please check your Streamlit secrets or .env file.")
     st.stop()
 
-# Initialize session state:
+#Initializing session state:
 if 'messages' not in st.session_state:
     st.session_state.messages = []
 
@@ -114,10 +114,6 @@ if uploaded_file:
 
                 st.write("**Assistant:**", answer)
 
-            #Display predictive analysis results
-            # st.header("Predictive Analysis: Revenue Forecast")
-            # st.write("Future Revenue Predictions (Next 10 Years):")
-            # st.dataframe(future_df)
 
             #Plot historical and predicted revenue
             plt.figure(figsize=(10, 6))
