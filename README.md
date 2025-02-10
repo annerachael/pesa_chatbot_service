@@ -4,7 +4,7 @@ This solution is designed to solve data analysis problem for finacial
 institutions using OpenAI and RAG technique.
 RAG fine-tunes our AI model to prevent hallucinations for the data set provided.
 
-Production link [ https://pesachatbotservice-an757m96yptjjeatzpwkpb.streamlit.app/ ]
+Production link [ https://pesachatbotservice-mapjphz2vappw75yzjqejpe.streamlit.app/ ]
 
 ## Features
 - Easy to use
